@@ -8,7 +8,7 @@ export default function GifGrid({category}) {
   }, []);
 
   const getGift = async () => {
-    const url = `https://api.giphy.com/v1/gifs/search?q=Goku&api_key=gwYmNzCsQm0Yct0CzJ1umliYT3pp6lo6`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&api_key=gwYmNzCsQm0Yct0CzJ1umliYT3pp6lo6`;
     const resp = await fetch(url)
     const { data } = await resp.json();
     const gifs = data.map(img => {
