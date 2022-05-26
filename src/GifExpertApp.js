@@ -3,7 +3,7 @@ import AddCategory from './components/AddCategory';
 import GifGrid from './components/GifGrid';
 
 export default function GifExpertApp() {
-  const [categories, setCategories] = useState(['Pokemon']);
+  const [categories, setCategories] = useState([]);
 
   // const handleAdd = () => {
   //   setCategories([...categories, 'Caballeros de Zodiaco']);
