@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from 'prop-types';
 
-export default function AddCategory({ setCategories, categories }) {
+export default function AddCategory({ setCategories }) {
 
   const [inputValue, setInputValue] = useState("");
 
@@ -12,19 +12,14 @@ export default function AddCategory({ setCategories, categories }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (categories.includes(inputValue.trim())) {
-      return;
-    }
-
     if (inputValue.trim().length > 2) {
-      setCategories([inputValue, ...categories]);
+      setCategories((categories) => [inputValue, ...categories]);
       setInputValue("");
     }
   }
 
   return (
     <Fragment>
-      <h1>{inputValue}</h1>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 

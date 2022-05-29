@@ -2,7 +2,6 @@
 
 exports[`Pruebas en <AddCateogry /> debe de mostrarse correctamente 1`] = `
 <Fragment>
-  <h1 />
   <form
     onSubmit={[Function]}
   >

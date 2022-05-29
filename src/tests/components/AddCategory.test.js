@@ -4,7 +4,12 @@ import { shallow } from 'enzyme'
 
 describe('Pruebas en <AddCateogry />', () => {
   const setCategories = jest.fn();
-  const wrapper = shallow(<AddCategory setCategories={setCategories}/>);
+  let wrapper;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    wrapper = shallow(<AddCategory setCategories={setCategories} />);
+  })
 
   test('debe de mostrarse correctamente', () => {
     expect(wrapper).toMatchSnapshot();
@@ -15,8 +20,12 @@ describe('Pruebas en <AddCateogry />', () => {
     const value = 'Hola Mundo';
     const event = { target: { value } };
     input.simulate('change', event);
-
     const inputValue = wrapper.find('input').prop('value');
     expect(inputValue).toBe(value);
-  })
+  });
+
+  test('NO debe de postear la informacion con submit', () => {
+    wrapper.find('form').simulate('submit', { preventDefault() {} });
+    expect(setCategories).not.toHaveBeenCalled();
+  });
 })
