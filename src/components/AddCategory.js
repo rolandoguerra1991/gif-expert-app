@@ -24,6 +24,7 @@ export default function AddCategory({ setCategories, categories }) {
 
   return (
     <Fragment>
+      <h1>{inputValue}</h1>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
